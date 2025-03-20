@@ -12,15 +12,11 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-<<<<<<< HEAD
-    "electron": "^34.2.0",
+    "electron": "^34.3.4",  // Elegir la versión más reciente de electron
     "electron-builder": "^25.1.8"
   },
   "dependencies": {
-    "puppeteer": "^24.3.0"
-=======
-    "electron": "^34.3.4"
->>>>>>> 6db1a6c (esta es la buena)
+    "puppeteer": "^24.4.0"  // Selecciona la versión más reciente de puppeteer
   },
   "build": {
     "appId": "com.tuempresa.electronform",
@@ -29,11 +25,5 @@
       "target": "nsis",
       "icon": "icon.ico"
     }
-<<<<<<< HEAD
-=======
-  },
-  "dependencies": {
-    "puppeteer": "^24.4.0"
->>>>>>> 6db1a6c (esta es la buena)
   }
 }
