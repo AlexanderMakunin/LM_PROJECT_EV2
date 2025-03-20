@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Cuentas - League of Graphs</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 20px;
+        }
+
+        input,
+        select,
+        button {
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            color: #333;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        button {
+            background-color: #2575fc;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1a60d5;
+            transform: scale(1.05);
+        }
+
+        #searching-message {
+            display: none;
+            /* Ocultar al principio */
+            color: #fff;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #user-info {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            /* Alinea verticalmente la imagen con el texto */
+            justify-content: flex-start;
+            /* Alinea los elementos de izquierda a derecha */
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        #user-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            /* Espacio entre la imagen y el texto */
+            border: 3px solid #fff;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease-in-out;
+            display: none;
+            /* Ocultar inicialmente */
+        }
+
+        #user-avatar.loaded {
+            transform: scale(1.1);
+        }
+
+
+        #user-info div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #user-name,
+        #user-level {
+            margin: 0;
+            font-size: 18px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Buscar Cuenta en League of Graphs</h2>
+        <form id="user-form">
+            <input type="text" id="user" placeholder="Nombre de Usuario" required>
+            <select id="region" required>
+                <option value="">Selecciona una región</option>
+                <option value="na">NA</option>
+                <option value="euw">EUW</option>
+                <option value="eune">EUNE</option>
+                <option value="kr">KR</option>
+                <option value="br">BR</option>
+                <option value="lan">LAN</option>
+                <option value="las">LAS</option>
+                <option value="oce">OCE</option>
+                <option value="tr">TR</option>
+                <option value="ru">RU</option>
+            </select>
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="searching-message">Buscando... <span id="timer"></span></div>
+        <div id="user-info">
+            <img id="user-avatar" src="" alt="Avatar" />
+            <div>
+                <p id="user-name"></p>
+                <p id="user-level"></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="renderer.js"></script>
+</body>
+
+</html>
